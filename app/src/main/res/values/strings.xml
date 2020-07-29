@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">GameScheduleApp</string>
+
+    // gs0001 title関連
+    <string name="gs0001_title">GameScheduleApp</string>
+
+    // gs1001 home関連
+    <string name="gs1001_schedule_button">スケジュール</string>
+    <string name="gs1001_game_list_button">ゲームリスト</string>
+
+    // gs3001 gameList関連
+    <string name="gs3001_progress_label">進捗度</string>
+    <string name="gs3001_last_play_label">最後にプレイ : </string>
+    <string name="gs3001_separator">" / "</string>
+    <string name="gs3001_app_play_time_label">総プレイ時間 : </string>
+
+    // gsf0003 activity関連
+    <string name="gsf0003_last_week_play_time">過去1週間 : </string>
+    <string name="gsf0003_time">時間</string>
+    <string name="gsf0003_total_play_time">総プレイ時間 : </string>
+    <string name="gsf0003_separator">" / "</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,98 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background1"
+    tools:context="com.gameScheduleApp.ui.home.ScheduleTodayFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <TextView
+        android:id="@+id/gsf0003_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/small"
+        android:textColor="@color/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/start_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="The Last of Us Part Ⅱを2時間プレイしました。" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        app:layout_constraintStart_toStartOf="@+id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/gsf0003_activity">
+
+        <TextView
+            android:id="@+id/gsf0003_label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gsf0003_last_week_play_time"
+            android:textAppearance="@style/small"
+            android:textColor="@color/text2"
+            tools:text="過去1週間 : " />
+
+        <TextView
+            android:id="@+id/gsf0003_last_week_play_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/small"
+            android:textColor="@color/text2"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/gsf0003_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gsf0003_time"
+            android:textAppearance="@style/small"
+            android:textColor="@color/text2"
+            tools:text="時間" />
+
+        <TextView
+            android:id="@+id/gsf0003_label3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gsf0003_separator"
+            android:textAppearance="@style/small"
+            android:textColor="@color/text2" />
+
+        <TextView
+            android:id="@+id/gsf0003_label4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gsf0003_total_play_time"
+            android:textAppearance="@style/small"
+            android:textColor="@color/text2"
+            tools:text="総プレイ時間 : " />
+
+        <TextView
+            android:id="@+id/gsf0003_total_play_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/small"
+            android:textColor="@color/text2"
+            tools:text="35" />
+
+        <TextView
+            android:id="@+id/gsf0003_label5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gsf0003_time"
+            android:textAppearance="@style/small"
+            tools:text="時間" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
