@@ -4,7 +4,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background1"
+    android:background="@color/background2"
     tools:context="com.gameScheduleApp.ui.home.ScheduleTodayFragment">
 
     <androidx.constraintlayout.widget.Guideline

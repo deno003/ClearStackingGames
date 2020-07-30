@@ -3,7 +3,7 @@
     android:id="@+id/gsf30001_game_list_fragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background2"
+    android:background="@color/background1"
     tools:context="com.gameScheduleApp.ui.gameList.GameFragment">
 
 

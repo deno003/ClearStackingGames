@@ -19,5 +19,8 @@
         <item name="android:textColor">#93AFCC</item>
     </style>
 
+    <style name="tiny" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">#93AFCC</item>
+    </style>
 
 </resources>

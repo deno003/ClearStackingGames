@@ -15,15 +15,10 @@ class ScheduleItemAdapter(private val dataSet: MutableList<ScheduleData>) :
 
     // ViewHolder
     class ScheduleItemViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
-        val gsi2002_schedule_title: TextView
-        val gsi2002_period: TextView
-        val gsi2002_description: TextView
+        val gsi2002ScheduleTitle: TextView = v.findViewById(R.id.gsi2002_schedule_title)
+        val gsi2002Period: TextView = v.findViewById(R.id.gsi2002_period)
+        val gsi2002Description: TextView = v.findViewById(R.id.gsi2002_description)
 
-        init {
-            gsi2002_schedule_title = v.findViewById(R.id.gsi2002_schedule_title)
-            gsi2002_period = v.findViewById(R.id.gsi2002_period)
-            gsi2002_description = v.findViewById(R.id.gsi2002_description)
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleItemViewHolder {
@@ -37,10 +32,10 @@ class ScheduleItemAdapter(private val dataSet: MutableList<ScheduleData>) :
 
     override fun onBindViewHolder(holder: ScheduleItemViewHolder, position: Int) {
         Log.d("Adapter", "onBindViewHolder")
-        holder.gsi2002_schedule_title.text = dataSet[position].gameTitle
-        holder.gsi2002_period.text =
+        holder.gsi2002ScheduleTitle.text = dataSet[position].gameTitle
+        holder.gsi2002Period.text =
             TimeFormatter().formatPeriod(dataSet[position].startTime, dataSet[position].endTime)
-        holder.gsi2002_description.text = dataSet[position].description
+        holder.gsi2002Description.text = dataSet[position].description
     }
 
     override fun getItemCount(): Int {

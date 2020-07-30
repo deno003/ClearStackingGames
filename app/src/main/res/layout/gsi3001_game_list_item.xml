@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/capsule_231x87" />
+        app:srcCompat="@mipmap/capsule_231x87"
+        tools:srcCompat="" />
 
     <TextView
         android:id="@+id/gsi3001_game_title"

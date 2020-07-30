@@ -1,6 +1,6 @@
 package com.gameScheduleApp.ui.calender.schedule
 
-import com.gameScheduleApp.models.ScheduleDisplayData2
+import com.gameScheduleApp.models.ScheduleDisplayData
 import com.gameScheduleApp.util.db.schedule.ScheduleRepository
 import org.threeten.bp.LocalDate
 
@@ -29,34 +29,27 @@ class SchedulePresenter(
         }
     }
 
-    private fun createDisplayScheduleData(): MutableList<ScheduleDisplayData2> {
+    private fun createDisplayScheduleData(): MutableList<ScheduleDisplayData> {
         // 返却用MutableList
-        var displayDataList = mutableListOf<ScheduleDisplayData2>()
+        var displayDataList = mutableListOf<ScheduleDisplayData>()
 
         // スケジュールデータ取得
         var scheduleData = scheduleRepository.selectAll()
-//        // display用にマッピング
-//        for (schedule in scheduleData) {
-//            val scheduleDisplayData = schedule.toScheduleDisplayData()
-//            displayDataList.add(scheduleDisplayData)
-//        }
 
         // 月次schedule追加
         var endCalenderDate: LocalDate = LocalDate.parse("2100-01-01")
         var date: LocalDate = LocalDate.parse("2019-01-01")
-
         // 2100年1月までループ処理
         while (!(date.year == endCalenderDate.year && date.month == endCalenderDate.month)) {
             // displayData
-            var scheduleDisplayData: ScheduleDisplayData2 =
-                ScheduleDisplayData2(
+            var scheduleDisplayData: ScheduleDisplayData =
+                ScheduleDisplayData(
                     displayCategory = 0,
                     date = date.toString(),
                     scheduleData = null
                 )
 
             displayDataList.add(scheduleDisplayData)
-
             date = date.plusMonths(1L)
         }
 
@@ -70,8 +63,8 @@ class SchedulePresenter(
                     .toMutableList()
 
             // displayData
-            var scheduleDisplayData: ScheduleDisplayData2 =
-                ScheduleDisplayData2(
+            var scheduleDisplayData: ScheduleDisplayData =
+                ScheduleDisplayData(
                     displayCategory = 1,
                     date = schedule.date,
                     scheduleData = scheduleDataOfTheDay
@@ -82,21 +75,4 @@ class SchedulePresenter(
         return displayDataList.sortedWith(compareBy({ it.date }, { it.displayCategory }))
             .toMutableList()
     }
-
-//    private fun ScheduleData.toScheduleDisplayData() =
-//        ScheduleDisplayData2(
-//            displayCategory = 1,
-//            scheduleId = scheduleId,
-//            gameId = gameId,
-//            gameTitle = gameTitle,
-//            date = date,
-//            startTime = startTime,
-//            endTime = endTime,
-//            goalType = goalType,
-//            goalId = goalId,
-//            completeFlag = completeFlag,
-//            completeDay = completeDay,
-//            playTime = playTime,
-//            description = description
-//        )
 }

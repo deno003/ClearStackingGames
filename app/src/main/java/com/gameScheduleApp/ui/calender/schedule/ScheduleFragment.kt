@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.gameScheduleApp.models.ScheduleDisplayData2
-import com.gameScheduleApp.ui.home.ScheduleTodayFragment
+import com.gameScheduleApp.models.ScheduleDisplayData
 import com.gameScheduleApp.util.db.schedule.ScheduleRepository
 
 class ScheduleFragment : Fragment(), ScheduleContract.View {
@@ -45,13 +44,14 @@ class ScheduleFragment : Fragment(), ScheduleContract.View {
         return view
     }
 
-    override fun showSchedule(scheduleDisplayDataList: MutableList<ScheduleDisplayData2>) {
+    override fun showSchedule(scheduleDisplayDataList: MutableList<ScheduleDisplayData>) {
         // アダプターとレイアウトマネージャーの設定
         with(gs2001ScheduleRecyclerView) {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
             adapter = ScheduleAdapter(scheduleDisplayDataList)
             setRecycledViewPool(recycledViewPool)
+            addItemDecoration(ScheduleDecoration.ScheduleDayDecoration(this.context))
         }
     }
 
@@ -63,6 +63,6 @@ class ScheduleFragment : Fragment(), ScheduleContract.View {
     }
 
     companion object {
-        fun newInstance() = ScheduleTodayFragment()
+        fun newInstance() = ScheduleFragment()
     }
 }
