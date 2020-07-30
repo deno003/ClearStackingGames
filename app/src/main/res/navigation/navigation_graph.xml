@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_homeFragment_to_scheduleFragment"
             app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_scheduleFragment2"
+            app:destination="@id/scheduleFragment2" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -26,4 +29,8 @@
         android:name="com.gameScheduleApp.ui.calender.schedule.ScheduleFragment"
         android:label="gs2001_schedule"
         tools:layout="@layout/gs2001_schedule" />
+    <fragment
+        android:id="@+id/scheduleFragment2"
+        android:name="com.gameScheduleApp.ui.calender.schedule.ScheduleFragment"
+        android:label="ScheduleFragment2" />
 </navigation>

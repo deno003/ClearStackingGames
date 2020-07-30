@@ -71,7 +71,7 @@ class HomeFragment : Fragment(), HomeContract.View {
                 findNavController().navigate(R.id.action_homeFragment_to_gameFragment)
             }
             gs0001_schedule_button.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_scheduleFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_scheduleFragment2)
             }
         }
 

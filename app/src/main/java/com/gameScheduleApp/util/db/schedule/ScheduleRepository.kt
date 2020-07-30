@@ -118,7 +118,9 @@ class ScheduleRepository(mContext: Context) {
             "end_time" to TimeFormatter().formatForRegistration(updateData.endTime),
             "goal_type" to updateData.goalType,
             "goal_id" to updateData.goalId,
-            "complete_flag" to updateData.completeFlag
+            "complete_flag" to updateData.completeFlag,
+            "play_time" to updateData.playTime,
+            "description" to updateData.description
         ).whereArgs("schedule_id = {scheduleId}", "scheduleId" to updateData.scheduleId).exec()
     }
 

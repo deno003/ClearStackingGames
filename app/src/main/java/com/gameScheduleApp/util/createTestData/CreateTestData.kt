@@ -12,7 +12,7 @@ class CreateTestData(mContext: Context) {
     val gameListRepository = GameListRepository(mContext)
     val scheduleRepository = ScheduleRepository(mContext)
 
-    fun inserTestData(mContext: Context) {
+    fun insertTestData() {
 
         // ゲーム一覧
 //        gameListRepository.deleteAll()
@@ -25,7 +25,7 @@ class CreateTestData(mContext: Context) {
 //        scheduleRepository.deleteAll(mContext)
 //        var scheduleToday = createScheduleToday()
 //        scheduleRepository.insertSchedule(mContext, scheduleToday)
-        var updateScheduleDataToday = createUpdateTodayScheduleData(mContext)
+        var updateScheduleDataToday = createUpdateTodayScheduleData()
         scheduleRepository.updateSchedule(updateScheduleDataToday)
 
     }
@@ -51,6 +51,7 @@ class CreateTestData(mContext: Context) {
 
     fun createScheduleToday(): ScheduleData {
         var data = ScheduleData(
+            scheduleId = 1L,
             gameId = 1L,
             gameTitle = "The Ghost Of Tsushima",
             date = LocalDate.now().toString(),
@@ -63,7 +64,7 @@ class CreateTestData(mContext: Context) {
         return data
     }
 
-    fun createUpdateTodayScheduleData(mContext: Context): ScheduleData {
+    private fun createUpdateTodayScheduleData(): ScheduleData {
         var scheduleData = scheduleRepository.selectScheduleById(1L)
         scheduleData.date = LocalDate.now().toString()
         return scheduleData
