@@ -1,0 +1,3 @@
+# ClearStackingGames
+
+steam等の積みゲーを崩すためのゲーム専用スケジューリングアプリ
