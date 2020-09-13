@@ -65,14 +65,19 @@ class SchedulePresenter(
             // displayData
             var scheduleDisplayData: ScheduleDisplayData =
                 ScheduleDisplayData(
-                    displayCategory = 1,
-                    date = schedule.date,
-                    scheduleData = scheduleDataOfTheDay
+                        displayCategory = 1,
+                        date = schedule.date,
+                        scheduleData = scheduleDataOfTheDay
                 )
             displayDataList.add(scheduleDisplayData)
         }
 
         return displayDataList.sortedWith(compareBy({ it.date }, { it.displayCategory }))
-            .toMutableList()
+                .toMutableList()
+    }
+
+    override fun activeScheduleDetail(scheduleId: Long) {
+//        var schedule = scheduleRepository.selectScheduleById(scheduleId)
+
     }
 }

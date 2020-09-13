@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
@@ -49,7 +50,7 @@ class ScheduleFragment : Fragment(), ScheduleContract.View {
         with(gs2001ScheduleRecyclerView) {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
-            adapter = ScheduleAdapter(scheduleDisplayDataList)
+            adapter = ScheduleAdapter(scheduleDisplayDataList, onClickListener)
             setRecycledViewPool(recycledViewPool)
             addItemDecoration(ScheduleDecoration.ScheduleDayDecoration(this.context))
         }
@@ -64,5 +65,12 @@ class ScheduleFragment : Fragment(), ScheduleContract.View {
 
     companion object {
         fun newInstance() = ScheduleFragment()
+    }
+
+    // clickListener
+    private var onClickListener: View.OnClickListener = View.OnClickListener {
+        val scheduleId = 0L
+        presenter.activeScheduleDetail(scheduleId)
+        findNavController().navigate(R.id.action_scheduleFragment_to_scheduleDetailFragment)
     }
 }

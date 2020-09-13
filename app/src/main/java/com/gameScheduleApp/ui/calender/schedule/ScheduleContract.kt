@@ -17,5 +17,7 @@ class ScheduleContract {
         fun openSchedule()
 
         fun openStartPosition()
+
+        fun activeScheduleDetail(scheduleId: Long)
     }
 }

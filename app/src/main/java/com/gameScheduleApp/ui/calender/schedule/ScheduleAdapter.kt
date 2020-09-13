@@ -10,8 +10,8 @@ import com.example.myapplication.R
 import com.gameScheduleApp.models.ScheduleDisplayData
 import com.gameScheduleApp.util.DateFormatter
 
-class ScheduleAdapter(private val dataSet: MutableList<ScheduleDisplayData>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ScheduleAdapter(private val dataSet: MutableList<ScheduleDisplayData>, private val onClickListener: View.OnClickListener) :
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val VIEW_TYPE_YEAR_MONTH = 0
@@ -19,38 +19,38 @@ class ScheduleAdapter(private val dataSet: MutableList<ScheduleDisplayData>) :
 
         // 各ViewHolder
         private class MonthViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val gsf2003MonthTitle: TextView = itemView.findViewById(R.id.gsf2003_month_title)
-
+            val gsf2003MonthTitle: TextView = itemView.findViewById(R.id.gsf2001_03_month_title)
         }
 
         private class DayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val gsi2001DayOfTheWeek: TextView = itemView.findViewById(R.id.gsi2001_day_of_the_week)
-            val gsi2001Day: TextView = itemView.findViewById(R.id.gsi2001_day)
+            val gsi2001DayOfTheWeek: TextView = itemView.findViewById(R.id.gsi2001_01_day_of_the_week)
+            val gsi2001Day: TextView = itemView.findViewById(R.id.gsi2001_01_day)
             val gsi2001ItemRecyclerView: RecyclerView =
-                itemView.findViewById(R.id.gsi2001_item_recycler_view)
+                    itemView.findViewById(R.id.gsi2001_01_item_recycler_view)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         // view新規作成
         var view: View? = null
+        var holder: RecyclerView.ViewHolder? = null
 
         when (viewType) {
             // 月
             VIEW_TYPE_YEAR_MONTH -> {
                 view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.gsi2003_month_title, parent, false)
-                return MonthViewHolder(view)
+                        .inflate(R.layout.gsi2001_03_month_title, parent, false)
+                holder = MonthViewHolder(view)
             }
             // 日・スケジュール
             VIEW_TYPE_DAY -> {
                 view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.gsi2001_schedule_item_day, parent, false)
-                return DayViewHolder(view)
+                        .inflate(R.layout.gsi2001_01_schedule_item_day, parent, false)
+                holder = DayViewHolder(view)
             }
         }
 
-        return DayViewHolder(view!!)
+        return holder!!
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -66,7 +66,7 @@ class ScheduleAdapter(private val dataSet: MutableList<ScheduleDisplayData>) :
                 holder.gsi2001Day.text = DateFormatter().day(dataSet[position].date)
                 holder.gsi2001ItemRecyclerView.apply {
                     layoutManager = LinearLayoutManager(holder.gsi2001ItemRecyclerView.context)
-                    adapter = ScheduleItemAdapter(dataSet[position].scheduleData!!)
+                    adapter = ScheduleItemAdapter(dataSet[position].scheduleData!!, onClickListener)
                     setRecycledViewPool(recycledViewPool)
                     isNestedScrollingEnabled = false
                     addItemDecoration(ScheduleDecoration.ScheduleItemDecoration(context))
